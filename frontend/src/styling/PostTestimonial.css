@@ -1,0 +1,61 @@
+/* Container form styling */
+form {
+  width: 100%;
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Inputs & textarea */
+input,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+/* Focus effect */
+input:focus,
+textarea:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+}
+
+/* Textarea size */
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Submit button */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: #4a90e2;
+  color: white;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* Hover effect */
+button:hover {
+  background: #357abd;
+}
+
+/* Disabled / active click effect */
+button:active {
+  transform: scale(0.98);
+}

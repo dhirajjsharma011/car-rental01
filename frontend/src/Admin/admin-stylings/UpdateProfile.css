@@ -1,0 +1,85 @@
+.update-container {
+  min-height: 100vh;
+  background: #f5f6fa;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.update-card {
+  width: 650px;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.update-card h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #222;
+}
+
+.update-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.update-field label {
+  font-weight: 600;
+  margin-bottom: 7px;
+  color: #333;
+}
+
+.update-field input,
+.update-field textarea {
+  padding: 11px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+}
+
+.update-field input:focus,
+.update-field textarea:focus {
+  border-color: #007bff;
+}
+
+.update-field textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.update-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.cancel-btn,
+.update-btn {
+  border: none;
+  padding: 11px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.cancel-btn {
+  background: #777;
+  color: white;
+}
+
+.update-btn {
+  background: #007bff;
+  color: white;
+}
+
+.cancel-btn:hover,
+.update-btn:hover {
+  opacity: 0.85;
+}

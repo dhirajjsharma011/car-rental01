@@ -1,0 +1,286 @@
+/* ================================
+   CHANGE PASSWORD PAGE
+================================ */
+
+.password-page {
+  width: 100%;
+  min-height: 100%;
+  padding: 10px 0 30px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+}
+
+.password-wrapper {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* ================================
+   PASSWORD CARD
+================================ */
+
+.password-card {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 35px 40px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 30px rgba(23, 32, 51, 0.07);
+}
+
+/* ================================
+   HEADING
+================================ */
+
+.password-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.password-heading-line {
+  width: 4px;
+  height: 48px;
+  margin-top: 2px;
+
+  background: #e85d04;
+  border-radius: 3px;
+
+  flex-shrink: 0;
+}
+
+.password-heading h2 {
+  margin: 0 0 5px;
+
+  color: #172033;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.password-heading p {
+  margin: 0;
+
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ================================
+   FORM
+================================ */
+
+.password-form {
+  width: 100%;
+}
+
+/* ================================
+   FIELD
+================================ */
+
+.password-field {
+  width: 100%;
+  margin-bottom: 21px;
+}
+
+.password-field label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ================================
+   INPUT
+================================ */
+
+.password-field input {
+  width: 100%;
+  height: 47px;
+
+  padding: 0 14px;
+  box-sizing: border-box;
+
+  border: 1px solid #d9dde4;
+  border-radius: 5px;
+
+  outline: none;
+
+  background: #ffffff;
+  color: #172033;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.password-field input:hover {
+  border-color: #bfc5ce;
+}
+
+.password-field input:focus {
+  border-color: #e85d04;
+
+  box-shadow:
+    0 0 0 3px rgba(232, 93, 4, 0.08);
+}
+
+.password-field input::placeholder {
+  color: #9ca3af;
+}
+
+/* ================================
+   BUTTON AREA
+================================ */
+
+.password-action {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 28px;
+  padding-top: 25px;
+
+  border-top: 1px solid #e5e7eb;
+}
+
+/* ================================
+   BUTTON
+================================ */
+
+.password-submit-btn {
+  min-width: 175px;
+  height: 46px;
+
+  padding: 0 25px;
+
+  border: none;
+  border-radius: 5px;
+
+  background: #e85d04;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.password-submit-btn:hover {
+  background: #d45103;
+
+  box-shadow:
+    0 6px 16px rgba(232, 93, 4, 0.20);
+
+  transform: translateY(-1px);
+}
+
+.password-submit-btn:active {
+  transform: translateY(0);
+}
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 800px) {
+
+  .password-wrapper {
+    max-width: 100%;
+  }
+
+  .password-card {
+    padding: 30px;
+  }
+
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+  .password-page {
+    padding: 5px 0 25px;
+  }
+
+  .password-card {
+    padding: 25px 20px;
+  }
+
+  .password-heading {
+    margin-bottom: 25px;
+  }
+
+  .password-heading h2 {
+    font-size: 21px;
+  }
+
+  .password-heading p {
+    font-size: 12px;
+  }
+
+  .password-field {
+    margin-bottom: 18px;
+  }
+
+  .password-submit-btn {
+    width: 100%;
+  }
+
+}
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 400px) {
+
+  .password-card {
+    padding: 22px 16px;
+  }
+
+  .password-heading {
+    gap: 10px;
+  }
+
+  .password-heading-line {
+    height: 42px;
+  }
+
+  .password-heading h2 {
+    font-size: 20px;
+  }
+
+  .password-heading p {
+    font-size: 11px;
+  }
+
+  .password-field label {
+    font-size: 12px;
+  }
+
+  .password-field input {
+    height: 44px;
+    font-size: 13px;
+  }
+
+}

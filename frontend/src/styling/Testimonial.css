@@ -1,0 +1,53 @@
+.testimonial-container {
+  width: 100%;
+  max-width: 350px;
+  margin: auto;
+  text-align: center;
+}
+
+.card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.stars {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.review {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.user h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.user span {
+  font-size: 13px;
+  color: #888;
+}
+
+.dots {
+  margin-top: 10px;
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  margin: 0 4px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #000;
+}

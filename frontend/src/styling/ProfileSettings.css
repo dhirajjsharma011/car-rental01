@@ -1,0 +1,340 @@
+/* ================================
+   PROFILE SETTINGS PAGE
+================================ */
+
+.settings-page {
+  width: 100%;
+  min-height: 100%;
+  padding: 10px 0 30px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+}
+
+.settings-wrapper {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* ================================
+   MAIN CARD
+================================ */
+
+.settings-card {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 32px 38px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 30px rgba(23, 32, 51, 0.07);
+}
+
+/* ================================
+   HEADING
+================================ */
+
+.settings-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.settings-heading-line {
+  width: 4px;
+  height: 48px;
+  margin-top: 2px;
+  background: #e85d04;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.settings-heading h2 {
+  margin: 0 0 5px;
+  color: #172033;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.settings-heading p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* ================================
+   FORM
+================================ */
+
+.settings-form {
+  width: 100%;
+}
+
+.settings-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 20px;
+}
+
+/* ================================
+   FORM FIELD
+================================ */
+
+.settings-field {
+  width: 100%;
+}
+
+.settings-field-full {
+  grid-column: 1 / -1;
+}
+
+.settings-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ================================
+   INPUT
+================================ */
+
+.settings-field input {
+  width: 100%;
+  height: 46px;
+  padding: 0 13px;
+  box-sizing: border-box;
+
+  border: 1px solid #d9dde4;
+  border-radius: 5px;
+
+  outline: none;
+  background: #ffffff;
+  color: #172033;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+
+  transition: border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.settings-field input:hover {
+  border-color: #bfc5ce;
+}
+
+.settings-field input:focus {
+  border-color: #e85d04;
+  box-shadow: 0 0 0 3px rgba(232, 93, 4, 0.08);
+}
+
+/* ================================
+   TEXTAREA
+================================ */
+
+.settings-field textarea {
+  width: 100%;
+  min-height: 105px;
+  padding: 12px 13px;
+  box-sizing: border-box;
+
+  resize: vertical;
+
+  border: 1px solid #d9dde4;
+  border-radius: 5px;
+
+  outline: none;
+  background: #ffffff;
+  color: #172033;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+
+  transition: border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.settings-field textarea:hover {
+  border-color: #bfc5ce;
+}
+
+.settings-field textarea:focus {
+  border-color: #e85d04;
+  box-shadow: 0 0 0 3px rgba(232, 93, 4, 0.08);
+}
+
+/* ================================
+   PLACEHOLDER
+================================ */
+
+.settings-field input::placeholder,
+.settings-field textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* ================================
+   DATE INPUT
+================================ */
+
+.settings-field input[type="date"] {
+  color: #374151;
+  cursor: pointer;
+}
+
+/* ================================
+   BUTTON AREA
+================================ */
+
+.settings-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.settings-save-btn {
+  min-width: 160px;
+  height: 46px;
+  padding: 0 25px;
+
+  border: none;
+  border-radius: 5px;
+
+  background: #e85d04;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease,
+              box-shadow 0.2s ease,
+              transform 0.2s ease;
+}
+
+.settings-save-btn:hover {
+  background: #d45103;
+  box-shadow: 0 6px 16px rgba(232, 93, 4, 0.20);
+  transform: translateY(-1px);
+}
+
+.settings-save-btn:active {
+  transform: translateY(0);
+}
+
+/* ================================
+   OUTLET
+================================ */
+
+.settings-outlet {
+  width: 100%;
+  margin-top: 25px;
+}
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 800px) {
+
+  .settings-wrapper {
+    max-width: 100%;
+  }
+
+  .settings-card {
+    padding: 30px;
+  }
+
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+  .settings-page {
+    padding: 5px 0 25px;
+  }
+
+  .settings-card {
+    padding: 25px 20px;
+  }
+
+  .settings-heading {
+    margin-bottom: 25px;
+  }
+
+  .settings-heading h2 {
+    font-size: 21px;
+  }
+
+  .settings-form-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .settings-field-full {
+    grid-column: auto;
+  }
+
+  .settings-action {
+    margin-top: 25px;
+    padding-top: 20px;
+  }
+
+  .settings-save-btn {
+    width: 100%;
+  }
+
+}
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 400px) {
+
+  .settings-card {
+    padding: 22px 16px;
+  }
+
+  .settings-heading {
+    gap: 10px;
+  }
+
+  .settings-heading-line {
+    height: 42px;
+  }
+
+  .settings-heading h2 {
+    font-size: 20px;
+  }
+
+  .settings-heading p {
+    font-size: 12px;
+  }
+
+  .settings-field label {
+    font-size: 12px;
+  }
+
+  .settings-field input {
+    height: 44px;
+    font-size: 13px;
+  }
+
+  .settings-field textarea {
+    min-height: 95px;
+    font-size: 13px;
+  }
+
+}

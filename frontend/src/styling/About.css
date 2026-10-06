@@ -1,0 +1,582 @@
+.abp-main-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #222;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================================
+   TOP BANNER
+========================================================= */
+
+.abp-banner-section {
+  width: 100%;
+  min-height: 390px;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.58),
+      rgba(0, 0, 0, 0.58)
+    ),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=85")
+    center center / cover no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.abp-banner-overlay {
+  width: 100%;
+  min-height: 390px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.abp-banner-content {
+  color: #fff;
+  padding: 30px 20px;
+}
+
+.abp-banner-content span {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #ff3d3d;
+}
+
+.abp-banner-content h1 {
+  margin: 15px 0 12px;
+
+  font-size: 58px;
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  color: #ffffff;
+}
+
+.abp-banner-content p {
+  margin: 0;
+
+  font-size: 16px;
+  color: #eeeeee;
+}
+
+.abp-banner-content p span {
+  margin: 0 8px;
+  color: #ff3d3d;
+  font-size: 20px;
+}
+
+
+/* =========================================================
+   ABOUT CONTENT
+========================================================= */
+
+.abp-content-section {
+  width: 100%;
+  padding: 90px 20px 100px;
+  background: #ffffff;
+}
+
+.abp-content-inner {
+  width: 100%;
+  max-width: 1150px;
+  margin: auto;
+  text-align: center;
+}
+
+.abp-small-title {
+  display: inline-block;
+
+  margin-bottom: 15px;
+
+  color: #e63939;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.abp-content-inner h2 {
+  max-width: 850px;
+  margin: 0 auto 25px;
+
+  font-size: 42px;
+  line-height: 1.2;
+  font-weight: 800;
+
+  color: #222;
+}
+
+.abp-content-inner h2 span {
+  color: #e63939;
+}
+
+.abp-content-inner > p {
+  max-width: 850px;
+  margin: 0 auto 15px;
+
+  font-size: 16px;
+  line-height: 1.8;
+
+  color: #666;
+}
+
+
+/* =========================================================
+   FEATURE BOXES
+========================================================= */
+
+.abp-features {
+  margin-top: 55px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+
+  text-align: left;
+}
+
+.abp-feature-box {
+  padding: 30px 25px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+
+  background: #ffffff;
+
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.abp-feature-box:hover {
+  transform: translateY(-7px);
+
+  border-color: #ff4a4a;
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.abp-feature-icon {
+  min-width: 55px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff1f1;
+
+  border-radius: 50%;
+
+  font-size: 25px;
+}
+
+.abp-feature-box h3 {
+  margin: 0 0 8px;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  color: #222;
+}
+
+.abp-feature-box p {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.6;
+
+  color: #777;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.abp-footer {
+  width: 100%;
+
+  background: #171717;
+  color: #ffffff;
+}
+
+.abp-footer-container {
+  max-width: 1150px;
+  margin: auto;
+
+  padding: 70px 20px 60px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.5fr;
+
+  gap: 55px;
+}
+
+.abp-footer-column h4 {
+  margin: 0;
+
+  font-size: 16px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  color: #ffffff;
+}
+
+.abp-footer-line {
+  width: 45px;
+  height: 3px;
+
+  margin: 14px 0 25px;
+
+  background: #e63939;
+}
+
+
+/* =========================================================
+   FOOTER ABOUT
+========================================================= */
+
+.abp-footer-about ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.abp-footer-about li {
+  margin-bottom: 13px;
+
+  font-size: 14px;
+  color: #bdbdbd;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    padding-left 0.25s ease;
+}
+
+.abp-footer-about li:hover {
+  color: #ffffff;
+  padding-left: 5px;
+}
+
+
+/* =========================================================
+   FOOTER CONTACT
+========================================================= */
+
+.abp-contact-item {
+  margin: 0 0 17px;
+
+  font-size: 14px;
+  line-height: 1.6;
+
+  color: #bdbdbd;
+}
+
+
+/* =========================================================
+   NEWSLETTER
+========================================================= */
+
+.abp-newsletter > p {
+  margin: 0 0 22px;
+
+  font-size: 14px;
+  line-height: 1.7;
+
+  color: #bdbdbd;
+}
+
+.newsletter-form {
+  width: 100%;
+
+  display: flex;
+  align-items: stretch;
+
+  margin-top: 5px;
+}
+
+.newsletter-form input {
+  flex: 1;
+
+  min-width: 0;
+  height: 50px;
+
+  padding: 0 17px;
+
+  border: 1px solid #444;
+  border-right: none;
+
+  border-radius: 6px 0 0 6px;
+
+  outline: none;
+
+  background: #252525;
+  color: #ffffff;
+
+  font-size: 14px;
+
+  transition: border-color 0.25s ease;
+}
+
+.newsletter-form input::placeholder {
+  color: #999;
+}
+
+.newsletter-form input:focus {
+  border-color: #e63939;
+}
+
+.newsletter-form button {
+  height: 50px;
+
+  padding: 0 22px;
+
+  border: none;
+  border-radius: 0 6px 6px 0;
+
+  background: #e63939;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.2s ease;
+}
+
+.newsletter-form button:hover {
+  background: #c92f2f;
+}
+
+.newsletter-form button:active {
+  transform: scale(0.97);
+}
+
+.abp-newsletter .note {
+  margin-top: 14px;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: #858585;
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+========================================================= */
+
+.abp-footer-bottom {
+  border-top: 1px solid #303030;
+
+  padding: 20px;
+  text-align: center;
+}
+
+.abp-footer-bottom p {
+  margin: 0;
+
+  font-size: 13px;
+  color: #888;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .abp-banner-section,
+  .abp-banner-overlay {
+    min-height: 330px;
+  }
+
+  .abp-banner-content h1 {
+    font-size: 46px;
+  }
+
+  .abp-content-section {
+    padding: 70px 20px 80px;
+  }
+
+  .abp-content-inner h2 {
+    font-size: 34px;
+  }
+
+  .abp-features {
+    grid-template-columns: 1fr;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .abp-footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+  }
+
+  .abp-newsletter {
+    grid-column: 1 / -1;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .abp-banner-section,
+  .abp-banner-overlay {
+    min-height: 280px;
+  }
+
+  .abp-banner-content {
+    padding: 20px;
+  }
+
+  .abp-banner-content span {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .abp-banner-content h1 {
+    font-size: 38px;
+    margin: 12px 0;
+  }
+
+  .abp-banner-content p {
+    font-size: 14px;
+  }
+
+
+  .abp-content-section {
+    padding: 60px 18px 70px;
+  }
+
+  .abp-small-title {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .abp-content-inner h2 {
+    font-size: 29px;
+  }
+
+  .abp-content-inner > p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+
+  .abp-feature-box {
+    padding: 22px 18px;
+  }
+
+  .abp-feature-icon {
+    min-width: 48px;
+    height: 48px;
+    font-size: 21px;
+  }
+
+  .abp-feature-box h3 {
+    font-size: 16px;
+  }
+
+  .abp-feature-box p {
+    font-size: 13px;
+  }
+
+
+  .abp-footer-container {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+
+    padding: 55px 20px 45px;
+  }
+
+  .abp-newsletter {
+    grid-column: auto;
+  }
+
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .newsletter-form input {
+    width: 100%;
+    height: 48px;
+
+    border: 1px solid #444;
+    border-radius: 6px;
+
+    box-sizing: border-box;
+  }
+
+  .newsletter-form button {
+    width: 100%;
+    height: 48px;
+
+    border-radius: 6px;
+  }
+
+  .abp-footer-bottom {
+    padding: 18px 15px;
+  }
+
+  .abp-footer-bottom p {
+    font-size: 12px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .abp-banner-content h1 {
+    font-size: 32px;
+  }
+
+  .abp-content-inner h2 {
+    font-size: 26px;
+  }
+
+  .abp-feature-box {
+    flex-direction: column;
+  }
+
+  .abp-feature-icon {
+    min-width: 48px;
+  }
+}

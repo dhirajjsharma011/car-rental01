@@ -1,0 +1,86 @@
+/* Background */
+.contact-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e90ff, #00c6ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Box */
+.contact-box {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Heading */
+.contact-box h1 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.contact-box h3 {
+  margin-bottom: 20px;
+  color: #777;
+  font-weight: normal;
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* Labels */
+.contact-form label {
+  margin: 10px 0 5px;
+  font-weight: 600;
+  color: #444;
+}
+
+/* Inputs */
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* Focus effect */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #1e90ff;
+  box-shadow: 0 0 5px rgba(30, 144, 255, 0.4);
+}
+
+/* Textarea */
+.contact-form textarea {
+  resize: none;
+  height: 100px;
+}
+
+/* Button */
+.contact-form button {
+  margin-top: 20px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #1e90ff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Hover */
+.contact-form button:hover {
+  background: #0d6efd;
+}
