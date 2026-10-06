@@ -8,7 +8,7 @@ export default function ManageContact() {
 
   useEffect(() => {
 
-    fetch("http://localhost:1175/api/getcontact")
+    fetch("https://car-rental-01-9nu4.onrender.com/api/getcontact")
       .then((res) => {
 
         console.log("Contact API Status:", res.status);

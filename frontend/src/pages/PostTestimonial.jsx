@@ -14,7 +14,7 @@ const PostTestimonial = () => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:1175/api/addtestimonial", data);;
+      await axios.post("https://car-rental-01-9nu4.onrender.com/api/addtestimonial", data);;
 
       alert("Testimonial Submitted!");
 

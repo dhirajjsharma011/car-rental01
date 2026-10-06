@@ -20,7 +20,7 @@ export default function UpdateProfile() {
 
   // GET SINGLE USER
   useEffect(() => {
-    fetch(`http://localhost:1175/api/reguser/${id}`)
+    fetch(`https://car-rental-01-9nu4.onrender.com/api/reguser/${id}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("User not found");
@@ -64,7 +64,7 @@ export default function UpdateProfile() {
 
     try {
       const res = await fetch(
-        `http://localhost:1175/api/reguser/${id}`,
+        `https://car-rental-01-9nu4.onrender.com/api/reguser/${id}`,
         {
           method: "PUT",
           headers: {

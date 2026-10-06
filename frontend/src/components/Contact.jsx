@@ -23,7 +23,7 @@ export default function Contact() {
     }
 
     try {
-      const res = await fetch("http://localhost:1175/api/contact", {
+      const res = await fetch("https://car-rental-01-9nu4.onrender.com/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

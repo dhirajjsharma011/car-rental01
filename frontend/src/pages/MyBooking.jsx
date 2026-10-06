@@ -27,7 +27,7 @@ export default function MyBookings() {
 
 
     fetch(
-      `http://localhost:1175/api/my-bookings/${userId}`
+      `https://car-rental-01-9nu4.onrender.com/api/my-bookings/${userId}`
     )
       .then((res) => {
 

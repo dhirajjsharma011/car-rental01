@@ -17,12 +17,12 @@ export default function Car() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:1175/api/brands")
+    fetch("https://car-rental-01-9nu4.onrender.com/api/brands")
       .then((res) => res.json())
       .then((data) => setBrands(data.data || []))
       .catch((err) => console.log(err));
 
-    fetch("http://localhost:1175/api/vehicles")
+    fetch("https://car-rental-01-9nu4.onrender.com/api/vehicles")
       .then((res) => res.json())
       .then((data) => setVehicles(data.data || []))
       .catch((err) => console.log(err));
@@ -83,7 +83,7 @@ export default function Car() {
                     className="car-card__image"
                     src={
                       car.images && car.images.length > 0
-                        ? `http://localhost:1175/uploads/${car.images[0]}`
+                        ? `https://car-rental-01-9nu4.onrender.com/uploads/${car.images[0]}`
                         : "https://via.placeholder.com/300"
                     }
                     alt={car.title}

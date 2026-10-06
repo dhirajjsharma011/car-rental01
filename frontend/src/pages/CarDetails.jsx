@@ -25,7 +25,7 @@ export default function CarDetails() {
   // ==============================
 
   useEffect(() => {
-    fetch(`http://localhost:1175/api/vehicles/${id}`)
+    fetch(`https://car-rental-01-9nu4.onrender.com/api/vehicles/${id}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch vehicle");
@@ -88,7 +88,7 @@ export default function CarDetails() {
 
       // API call
       const res = await fetch(
-        "http://localhost:1175/api/createbooking",
+        "https://car-rental-01-9nu4.onrender.com/api/createbooking",
         {
           method: "POST",
           headers: {
@@ -146,7 +146,7 @@ export default function CarDetails() {
             className="carDetails-image"
             src={
               vehicle.images?.length > 0
-                ? `http://localhost:1175/uploads/${vehicle.images[0]}`
+                ? `https://car-rental-01-9nu4.onrender.com/uploads/${vehicle.images[0]}`
                 : "https://via.placeholder.com/300"
             }
             alt={vehicle.title}

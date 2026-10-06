@@ -4,7 +4,7 @@ export default function AllVehicle() {
   const [vehicles, setVehicles] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:1175/api/vehicle")
+    fetch("https://car-rental-01-9nu4.onrender.com/api/vehicle")
       .then((res) => res.json())
       .then((data) => setVehicles(data))
       .catch((err) => console.log(err));
@@ -18,7 +18,7 @@ export default function AllVehicle() {
         {vehicles.map((v) => (
           <div key={v._id} style={card}>
             <img
-              src={`http://localhost:1175/uploads/${v.images[0]}`}
+              src={`https://car-rental-01-9nu4.onrender.com/uploads/${v.images[0]}`}
               alt=""
               style={{ width: "100%", height: "150px", objectFit: "cover" }}
             />

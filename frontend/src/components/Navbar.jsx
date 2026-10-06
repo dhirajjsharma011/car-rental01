@@ -58,7 +58,7 @@ export default function Navbar() {
     try {
 
       const res = await fetch(
-        "http://localhost:1175/api/login",
+        "https://car-rental-01-9nu4.onrender.com/api/login",
         {
           method: "POST",
 
@@ -227,7 +227,7 @@ export default function Navbar() {
     try {
 
       const res = await fetch(
-        "http://localhost:1175/api/register",
+        "https://car-rental-01-9nu4.onrender.com/api/register",
         {
           method: "POST",
 

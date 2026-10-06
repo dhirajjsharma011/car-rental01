@@ -13,7 +13,7 @@ export default function About() {
 
     try {
       const res = await axios.post(
-        "http://localhost:1175/api/subscribe",
+        "https://car-rental-01-9nu4.onrender.com/api/subscribe",
         { email }
       );
 

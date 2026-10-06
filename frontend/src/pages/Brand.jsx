@@ -22,7 +22,7 @@ const Brand = () => {
   };
 
   useEffect(() => {
-      fetch("http://localhost:1175/api/brands")
+      fetch("https://car-rental-01-9nu4.onrender.com/api/brands")
         .then((res) => res.json())
         .then((data) => {
           setBrands(data.data || []);
@@ -40,7 +40,7 @@ const Brand = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:1175/api/createbrand", {
+      const res = await fetch("https://car-rental-01-9nu4.onrender.com/api/createbrand", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -70,7 +70,7 @@ const Brand = () => {
     const [vehicles, setVehicles] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:1175/api/vehicles") 
+    fetch("https://car-rental-01-9nu4.onrender.com/api/vehicles") 
       .then(res => res.json())
       .then(data => {
         console.log("API:", data); 
@@ -84,7 +84,7 @@ const Brand = () => {
   if (!window.confirm("Are you sure you want to delete this brand?")) return;
 
   try {
-    const res = await fetch(`http://localhost:1175/api/brands/${id}`, {
+    const res = await fetch(`https://car-rental-01-9nu4.onrender.com/api/brands/${id}`, {
       method: "DELETE",
     });
 

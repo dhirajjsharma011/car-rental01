@@ -11,7 +11,7 @@ const Testimonial = () => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const response = await axios.get("http://localhost:1175/api/gettestimonials");
+        const response = await axios.get("https://car-rental-01-9nu4.onrender.com/api/gettestimonials");
         // Check agar response array hai
         if (Array.isArray(response.data)) {
           setTestimonials(response.data);

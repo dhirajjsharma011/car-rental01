@@ -5,7 +5,7 @@ export default function AdminBooking() {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:1175/api/booking")
+    fetch("https://car-rental-01-9nu4.onrender.com/api/booking")
       .then((res) => res.json())
       .then((data) => setBookings(data.bookings || []))
       .catch((err) => console.log(err));
@@ -14,7 +14,7 @@ export default function AdminBooking() {
   
   const handleStatus = async (id, status) => {
     try {
-      const res = await fetch(`http://localhost:1175/api/booking-status/${id}`,
+      const res = await fetch(`https://car-rental-01-9nu4.onrender.com/api/booking-status/${id}`,
         {
           method: "PUT",
           headers: {

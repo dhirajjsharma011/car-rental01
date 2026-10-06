@@ -19,7 +19,7 @@ export default function ManageSubscribers() {
       setLoading(true);
 
       const res = await axios.get(
-        "http://localhost:1175/api/subscribers"
+        "https://car-rental-01-9nu4.onrender.com/api/subscribers"
       );
 
       console.log("Subscribers Response:", res.data);
@@ -77,7 +77,7 @@ export default function ManageSubscribers() {
     try {
 
       const res = await axios.post(
-        "http://localhost:1175/api/subscribe",
+        "https://car-rental-01-9nu4.onrender.com/api/subscribe",
         {
           email: email.trim()
         }
@@ -130,7 +130,7 @@ export default function ManageSubscribers() {
     try {
 
       const res = await axios.delete(
-        `http://localhost:1175/api/subscriber/${id}`
+        `https://car-rental-01-9nu4.onrender.com/api/subscriber/${id}`
       );
 
       console.log(

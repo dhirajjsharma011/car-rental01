@@ -24,7 +24,7 @@ export default function ProfileSettings() {
         }
 
         const res = await fetch(
-          `http://localhost:1175/api/profile/${userId}`
+          `https://car-rental-01-9nu4.onrender.com/api/profile/${userId}`
         );
 
         const data = await res.json();
@@ -70,7 +70,7 @@ export default function ProfileSettings() {
       }
 
       const res = await fetch(
-        `http://localhost:1175/api/profile/${userId}`,
+        `https://car-rental-01-9nu4.onrender.com/api/profile/${userId}`,
         {
           method: "PUT",
           headers: {

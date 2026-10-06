@@ -14,7 +14,7 @@ import {
   FaComments
 } from "react-icons/fa";
 
-const API = "http://localhost:1175/api";
+const API = "https://car-rental-01-9nu4.onrender.com/api";
 
 export default function Dashboard() {
 

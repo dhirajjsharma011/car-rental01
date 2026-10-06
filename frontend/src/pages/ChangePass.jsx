@@ -42,7 +42,7 @@ export default function ChangePass() {
       }
 
       const res = await fetch(
-        `http://localhost:1175/api/change-password/${userId}`,
+        `https://car-rental-01-9nu4.onrender.com/api/change-password/${userId}`,
         {
           method: "PUT",
           headers: {

@@ -8,7 +8,7 @@ export default function RgUsers() {
 
   // GET USERS
   useEffect(() => {
-    fetch("http://localhost:1175/api/reguser")
+    fetch("https://car-rental-01-9nu4.onrender.com/api/reguser")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data.data);
@@ -24,7 +24,7 @@ export default function RgUsers() {
     if (!confirmDelete) return;
 
     try {
-      const res = await fetch(`http://localhost:1175/api/reguser/${id}`, {
+      const res = await fetch(`https://car-rental-01-9nu4.onrender.com/api/reguser/${id}`, {
         method: "DELETE",
       });
 

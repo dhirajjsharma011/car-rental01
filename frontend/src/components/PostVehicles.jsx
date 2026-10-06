@@ -30,7 +30,7 @@ export default function PostVehicles() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:1175/api/brands")
+    fetch("https://car-rental-01-9nu4.onrender.com/api/brands")
       .then((res) => res.json())
       .then((data) => {
         setBrands(data.data || []);
@@ -50,7 +50,7 @@ export default function PostVehicles() {
         formData.append("images", img);
       });
 
-      const res = await fetch("http://localhost:1175/api/vehicle", {
+      const res = await fetch("https://car-rental-01-9nu4.onrender.com/api/vehicle", {
         method: "POST",
         body: formData
       });
