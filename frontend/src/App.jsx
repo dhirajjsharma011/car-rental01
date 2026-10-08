@@ -28,6 +28,8 @@ import ManageContact from "./Admin/ManageContact";
 
 import PostVehicles from "./components/PostVehicles";
 import Brand from "./pages/Brand";
+import EditVehicles from "./Admin/EditVehicles";
+import VehicleData from "./Admin/VehicleData";
 
 
 function App() {
@@ -134,11 +136,17 @@ function App() {
           element={<UpdateProfile />}
         />
 
+        <Route path="/edit-vehicle/:id"  element={<EditVehicles/>}/>
+
         {/* VEHICLES */}
         <Route
           path="/vehicles"
           element={<PostVehicles />}
         />
+
+        <Route path="/manage-vehicles" element={<VehicleData/>}/>
+        
+       
 
         {/* BRANDS */}
         <Route

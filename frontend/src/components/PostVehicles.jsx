@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "../styling/PostVehicles.css"
+import { Link } from "react-router-dom";
+import "../styling/PostVehicles.css";
 
-export default function PostVehicles() {
+export default function PostVehicle() {
 
   const [form, setForm] = useState({
     title: "",
@@ -11,11 +12,15 @@ export default function PostVehicles() {
     fuel: "",
     year: "",
     seats: "",
-    accessories:[]
+    accessories: []
   });
 
   const [images, setImages] = useState([]);
   const [brands, setBrands] = useState([]);
+
+  // =====================================================
+  // HANDLE INPUT CHANGE
+  // =====================================================
 
   const handleChange = (e) => {
     setForm({
@@ -24,47 +29,190 @@ export default function PostVehicles() {
     });
   };
 
-  // ✅ FIXED
-  const handleFileChange = (e) => {
-    setImages([...e.target.files]); 
+
+  // =====================================================
+  // HANDLE ACCESSORIES
+  // =====================================================
+
+  const handleAccessoryChange = (e) => {
+
+    const { value, checked } = e.target;
+
+    if (checked) {
+
+      setForm((prev) => ({
+        ...prev,
+        accessories: [
+          ...prev.accessories,
+          value
+        ]
+      }));
+
+    } else {
+
+      setForm((prev) => ({
+        ...prev,
+        accessories: prev.accessories.filter(
+          (item) => item !== value
+        )
+      }));
+
+    }
   };
 
-  useEffect(() => {
-    fetch("https://car-rental-01-9nu4.onrender.com/api/brands")
-      .then((res) => res.json())
-      .then((data) => {
-        setBrands(data.data || []);
-      })
-      .catch((err) => console.log(err));
-  }, []);
 
-  const handleSubmit = async () => {
-    try {
-      const formData = new FormData();
+  // =====================================================
+  // HANDLE IMAGE CHANGE
+  // =====================================================
 
-      Object.keys(form).forEach((key) => {
-        formData.append(key, form[key]);
-      });
+  const handleFileChange = (e) => {
 
-      images.forEach((img) => {
-        formData.append("images", img);
-      });
+    const file = e.target.files[0];
 
-      const res = await fetch("https://car-rental-01-9nu4.onrender.com/api/vehicle", {
-        method: "POST",
-        body: formData
-      });
+    if (!file) return;
 
-      const data = await res.json();
-      
+    setImages((prev) => {
 
-      if (!res.ok) {
-        console.log(data);
-        throw new Error(data.message || "Error");
+      if (prev.length >= 3) {
+        alert("Maximum 3 images allowed");
+        return prev;
       }
 
-      alert("Vehicle Added Successfully");
+      return [...prev, file];
 
+    });
+
+    // Same file ko dobara select karne ke liye
+    e.target.value = "";
+  };
+
+
+  // =====================================================
+  // GET BRANDS
+  // =====================================================
+
+  useEffect(() => {
+
+    fetch(
+      "https://car-rental-01-9nu4.onrender.com/api/brands"
+    )
+      .then((res) => res.json())
+      .then((data) => {
+
+        setBrands(data.data || []);
+
+      })
+      .catch((err) => {
+
+        console.log("BRAND ERROR:", err);
+
+      });
+
+  }, []);
+
+
+  // =====================================================
+  // SUBMIT VEHICLE
+  // =====================================================
+
+  const handleSubmit = async (e) => {
+
+    e.preventDefault();
+
+    try {
+
+      // Basic validation
+      if (!form.title || !form.brand || !form.price) {
+
+        alert(
+          "Title, Brand and Price are required"
+        );
+
+        return;
+      }
+
+
+      const formData = new FormData();
+
+
+      // =================================================
+      // ADD FORM FIELDS
+      // =================================================
+
+      formData.append("title", form.title);
+      formData.append("brand", form.brand);
+      formData.append("overview", form.overview);
+      formData.append("price", form.price);
+      formData.append("fuel", form.fuel);
+      formData.append("year", form.year);
+      formData.append("seats", form.seats);
+
+
+      // =================================================
+      // ADD ACCESSORIES
+      // =================================================
+
+      form.accessories.forEach((accessory) => {
+
+        formData.append(
+          "accessories",
+          accessory
+        );
+
+      });
+
+
+      // =================================================
+      // ADD IMAGES
+      // =================================================
+
+      images.forEach((img) => {
+
+        formData.append(
+          "images",
+          img
+        );
+
+      });
+
+
+      // =================================================
+      // API
+      // =================================================
+
+      const res = await fetch(
+        "https://car-rental-01-9nu4.onrender.com/api/vehicle",
+        {
+          method: "POST",
+          body: formData
+        }
+      );
+
+
+      const data = await res.json();
+
+
+      if (!res.ok) {
+
+        console.log(data);
+
+        throw new Error(
+          data.message || "Error adding vehicle"
+        );
+
+      }
+
+
+      // =================================================
+      // SUCCESS
+      // =================================================
+
+      alert(
+        "Vehicle Added Successfully"
+      );
+
+
+      // Reset form
       setForm({
         title: "",
         brand: "",
@@ -72,88 +220,378 @@ export default function PostVehicles() {
         price: "",
         fuel: "",
         year: "",
-        seats: ""
+        seats: "",
+        accessories: []
       });
+
 
       setImages([]);
 
+
     } catch (err) {
-      console.log("FRONTEND ERROR:", err);
+
+      console.log(
+        "FRONTEND ERROR:",
+        err
+      );
+
       alert(err.message);
+
     }
+
   };
 
+
   return (
+
     <div className="pv-container">
-      <h2 className="pv-title">Post A Vehicle</h2>
+
+      <h2 className="pv-title">
+        Post A Vehicle
+      </h2>
+
 
       <div className="pv-box">
 
-        <input name="title" placeholder="Vehicle Title" value={form.title} onChange={handleChange} />
 
-        <select name="brand" value={form.brand} onChange={handleChange}>
-          <option value="">Select Brand</option>
-          {brands.map((u, i) => (
-            <option key={i} value={u.brand}>{u.brand}</option>
+        {/* =================================================
+            TITLE
+        ================================================= */}
+
+        <input
+          name="title"
+          placeholder="Vehicle Title"
+          value={form.title}
+          onChange={handleChange}
+        />
+
+
+        {/* =================================================
+            BRAND
+        ================================================= */}
+
+        <select
+          name="brand"
+          value={form.brand}
+          onChange={handleChange}
+        >
+
+          <option value="">
+            Select Brand
+          </option>
+
+          {brands.map((b, i) => (
+
+            <option
+              key={i}
+              value={b.brand}
+            >
+              {b.brand}
+            </option>
+
           ))}
+
         </select>
 
-        <textarea name="overview" placeholder="Overview" value={form.overview} onChange={handleChange}></textarea>
 
-        <input name="price" type="number" placeholder="Price" value={form.price} onChange={handleChange} />
+        {/* =================================================
+            OVERVIEW
+        ================================================= */}
 
-        <select name="fuel" value={form.fuel} onChange={handleChange}>
-          <option value="">Select Fuel</option>
-          <option value="Petrol">Petrol</option>
-          <option value="Diesel">Diesel</option>
+        <textarea
+          name="overview"
+          placeholder="Overview"
+          value={form.overview}
+          onChange={handleChange}
+        />
+
+
+        {/* =================================================
+            PRICE
+        ================================================= */}
+
+        <input
+          name="price"
+          type="number"
+          placeholder="Price"
+          value={form.price}
+          onChange={handleChange}
+        />
+
+
+        {/* =================================================
+            FUEL
+        ================================================= */}
+
+        <select
+          name="fuel"
+          value={form.fuel}
+          onChange={handleChange}
+        >
+
+          <option value="">
+            Select Fuel
+          </option>
+
+          <option value="Petrol">
+            Petrol
+          </option>
+
+          <option value="Diesel">
+            Diesel
+          </option>
+
         </select>
 
-        <input name="year" placeholder="Year" value={form.year} onChange={handleChange} />
 
-        <input name="seats" type="number" placeholder="Seats" value={form.seats} onChange={handleChange} />
+        {/* =================================================
+            YEAR
+        ================================================= */}
 
-        
-        <input type="file" multiple onChange={handleFileChange} />
-         <input type="file" multiple onChange={handleFileChange} />
-          <input type="file" multiple onChange={handleFileChange} />
+        <input
+          name="year"
+          placeholder="Year"
+          value={form.year}
+          onChange={handleChange}
+        />
 
-        <button onClick={handleSubmit}>Save</button>
+
+        {/* =================================================
+            SEATS
+        ================================================= */}
+
+        <input
+          name="seats"
+          type="number"
+          placeholder="Seats"
+          value={form.seats}
+          onChange={handleChange}
+        />
+
+
+        {/* =================================================
+            ACCESSORIES
+        ================================================= */}
+
+        <div className="accessories-box">
+
+          <h4>
+            Select Accessories
+          </h4>
+
+
+          <label>
+            <input
+              type="checkbox"
+              value="Air Conditioner"
+              checked={form.accessories.includes(
+                "Air Conditioner"
+              )}
+              onChange={handleAccessoryChange}
+            />
+
+            Air Conditioner
+          </label>
+
+
+          <label>
+            <input
+              type="checkbox"
+              value="Power Steering"
+              checked={form.accessories.includes(
+                "Power Steering"
+              )}
+              onChange={handleAccessoryChange}
+            />
+
+            Power Steering
+          </label>
+
+
+          <label>
+            <input
+              type="checkbox"
+              value="Power Windows"
+              checked={form.accessories.includes(
+                "Power Windows"
+              )}
+              onChange={handleAccessoryChange}
+            />
+
+            Power Windows
+          </label>
+
+
+          <label>
+            <input
+              type="checkbox"
+              value="Central Locking"
+              checked={form.accessories.includes(
+                "Central Locking"
+              )}
+              onChange={handleAccessoryChange}
+            />
+
+            Central Locking
+          </label>
+
+
+          <label>
+            <input
+              type="checkbox"
+              value="ABS"
+              checked={form.accessories.includes(
+                "ABS"
+              )}
+              onChange={handleAccessoryChange}
+            />
+
+            ABS
+          </label>
+
+
+          <label>
+            <input
+              type="checkbox"
+              value="Airbags"
+              checked={form.accessories.includes(
+                "Airbags"
+              )}
+              onChange={handleAccessoryChange}
+            />
+
+            Airbags
+          </label>
+
+
+          <label>
+            <input
+              type="checkbox"
+              value="Bluetooth"
+              checked={form.accessories.includes(
+                "Bluetooth"
+              )}
+              onChange={handleAccessoryChange}
+            />
+
+            Bluetooth
+          </label>
+
+
+          <label>
+            <input
+              type="checkbox"
+              value="GPS"
+              checked={form.accessories.includes(
+                "GPS"
+              )}
+              onChange={handleAccessoryChange}
+            />
+
+            GPS
+          </label>
+
+
+          <label>
+            <input
+              type="checkbox"
+              value="Music System"
+              checked={form.accessories.includes(
+                "Music System"
+              )}
+              onChange={handleAccessoryChange}
+            />
+
+            Music System
+          </label>
+
+
+          <label>
+            <input
+              type="checkbox"
+              value="Sunroof"
+              checked={form.accessories.includes(
+                "Sunroof"
+              )}
+              onChange={handleAccessoryChange}
+            />
+
+            Sunroof
+          </label>
+
+        </div>
+
+
+        {/* =================================================
+            IMAGES
+        ================================================= */}
+
+        <h4>
+          Vehicle Images
+        </h4>
+
+
+        <input
+          type="file"
+          accept="image/jpeg,image/jpg,image/png,image/webp"
+          onChange={handleFileChange}
+        />
+
+
+        <input
+          type="file"
+          accept="image/jpeg,image/jpg,image/png,image/webp"
+          onChange={handleFileChange}
+        />
+
+
+        <input
+          type="file"
+          accept="image/jpeg,image/jpg,image/png,image/webp"
+          onChange={handleFileChange}
+        />
+
+
+        {images.length > 0 && (
+
+          <div>
+
+            <p>
+              {images.length} image(s) selected
+            </p>
+
+          </div>
+
+        )}
+
+
+        {/* =================================================
+            SAVE BUTTON
+        ================================================= */}
+
+        <button
+          onClick={handleSubmit}
+        >
+          Save
+        </button>
+
+
+        {/* =================================================
+            MANAGE VEHICLES
+        ================================================= */}
+
+        <Link
+          to="/manage-vehicles"
+          className="adminvehicle"
+        >
+          Show Manage Vehicles
+        </Link>
+
 
       </div>
 
-      <div className="pv-accessories">
-  <p>Select Accessories:</p>
-
-  {[
-    "Air Conditioner",
-    "Power Steering",
-    "Bluetooth",
-    "Parking Sensors",
-    "Rear Camera",
-    "Airbags"
-  ].map((item, index) => (
-    <label key={index} className="pv-checkbox">
-      <input
-        type="checkbox"
-        value={item}
-        onChange={(e) => {
-          if (e.target.checked) {
-            setForm({
-              ...form,
-              accessories: [...form.accessories, item]
-            });
-          } else {
-            setForm({
-              ...form,
-              accessories: form.accessories.filter(a => a !== item)
-            });
-          }
-        }}
-      />
-      {item}
-    </label>
-  ))}
-</div>
     </div>
+
   );
+
 }
