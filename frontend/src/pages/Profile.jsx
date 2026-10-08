@@ -9,7 +9,7 @@ import {
   FaSignOutAlt 
 } from "react-icons/fa";
 
-import "../styling/profile.css"; 
+import "../styling/Profile.css"; 
 
 export default function Profile() {
   const userName = localStorage.getItem("name") || "Guest User";

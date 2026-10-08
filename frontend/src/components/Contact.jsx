@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styling/contact.css";
+import "../styling/Contact.css";
 
 export default function Contact() {
   const [form, setForm] = useState({
